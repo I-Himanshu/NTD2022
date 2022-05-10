@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #111;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width: 400px;
+    height: 500px;
+    background: rgb(125, 228, 81);
+    display: flex;
+    flex-direction: column;
+}
+.imgCon{
+    background: red;
+    height: 100%;
+}
+.textCon{
+    background: white;
+    height: 100%;
+}
+.control{
+    align-self: ;
+    display: flex;
+    justify-content: space-between;
+    background: blue;
+    height: 20%;
+    padding: 5px 0;
+}
+.control button{
+    margin-inline: 10%;
+    padding-inline: 10%;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+}
