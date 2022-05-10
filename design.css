@@ -17,9 +17,8 @@ body{
     display: flex;
     flex-direction: column;
 }
-.imgCon{
-    background: red;
-    height: 100%;
+.imgCon .thumbnail{
+    width: 100%;
 }
 .textCon{
     background: white;
