@@ -14,6 +14,7 @@ let DATA = [
 $(document).ready(() => {
     let textCon = $(".textCon");
     var i = 0;
+    $("*").css("transform","rotate(360deg)")
     $(".next").click(function () {
         $(".textCon").slideToggle(1200)
         $(".imgCon").slideToggle(400)
@@ -25,5 +26,7 @@ $(document).ready(() => {
         $(".textCon").slideToggle()
         $(".imgCon").slideToggle()
         $(".control").fadeToggle(300)
+
+        $(this).parent().parent()
     })
 })
