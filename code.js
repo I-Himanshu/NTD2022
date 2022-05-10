@@ -29,4 +29,6 @@ $(document).ready(() => {
 
         $(this).parent().parent()
     })
+    $(".next").click()
+
 })
